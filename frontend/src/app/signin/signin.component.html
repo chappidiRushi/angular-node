@@ -1,0 +1,34 @@
+<!-- <p>signin works!</p> -->
+<div class="main-container flex flex-col justify-center items-center   w-screen h-screen bg-red-400">
+   <div class="text-5xl p-6 font-sans">Rishi.io</div>
+   <div class="w-96  bg-white rounded-lg p-6">
+      <div class="w-full pb-2 text-center text-2xl">Log In</div>
+      <form (ngSubmit)="singInUser(signInForm)" #signInForm="ngForm">
+         <div class="form-container w-full mt-4 mb-4">
+            <input #userName="ngModel" minlength="4" maxlength="30" required type="text" name="userName"
+               class="w-full border p-2 font-mono rounded-lg border-gray-600" id="userName"
+               placeholder="Please Enter User Name" ngModel>
+            <span *ngIf="userName.touched && userName.invalid" class=" text-red-400 text-xs">
+               <span *ngIf="userName.errors?.['minlength']">User name must be grater than
+                  {{userName.errors?.['minlength']?.['requiredLength']}} digits</span>
+               <span *ngIf="userName.errors?.['required']">User name should not be empty</span>
+            </span>
+         </div>
+         <div class="form-container w-full mt-4 mb-4">
+            <input type="password" #userPassword="ngModel" required="" minlength="4" maxlength="20" name="userPassword"
+               class="w-full border p-2 font-mono rounded-lg border-gray-600" id="password"
+               placeholder="Please Enter Password" ngModel autocomplete="true">
+            <span *ngIf="userPassword.touched && userPassword.invalid" class=" text-red-400 text-xs">
+               <span *ngIf="userPassword.errors?.['minlength']">User password must be more than
+                  {{userPassword.errors?.['minlength']?.['requiredLength']}} digits</span>
+               <span *ngIf="userPassword.errors?.['required']">User password should not be empty</span>
+            </span>
+         </div>
+         <button type="submit" id="login"
+            class="w-full mt-2 mb-2 border p-2 font-mono rounded-lg border-gray-600 hover:bg-blue-300">Log
+            In</button>
+      </form>
+      <div class="w-full text-center"><a href="/forgotPassword" class="text-orange-500">Forgot password?</a></div>
+   </div>
+
+</div>/Users/rushi/practice/my-app/src/app/signin/signin.component.html
