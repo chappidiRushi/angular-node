@@ -3,6 +3,7 @@ import { FormControl, FormsModule, NgForm } from '@angular/forms';
 import { LoginService } from '../services/login.service';
 import { environment } from '@environment';
 import { Router } from '@angular/router';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-signin',
@@ -11,11 +12,10 @@ import { Router } from '@angular/router';
 })
 export class SigninComponent implements OnInit {
 
-  constructor(private logInService: LoginService, private router: Router ) { }
+  constructor(private logInService: LoginService, private router: Router, private authService: AuthService) { }
   userName = '';
   singInForm = new FormControl();
   ngOnInit(): void {
-    console.log("baseUrl",environment.baseUrl);
   }
 
   singInUser(signInForm: NgForm) {
@@ -24,10 +24,19 @@ export class SigninComponent implements OnInit {
       const userPassword = signInForm.form.controls?.['userPassword']?.value;
       const QueryPrms: Object = {
         email: userName,
-        password: userPassword
+        password: userPassword,
       }
-      this.logInService.logInUser("api/login", QueryPrms).subscribe((data: Object) => console.log(data));
-      this.router.navigate(['home']);
+
+      this.authService.logInUser(QueryPrms).subscribe(
+        (success: any) => {
+          if (success.logIn) {
+            this.authService.storeJWT(success);
+            this.router.navigate(['home']);
+          }
+        }, (error: any) => {
+          console.log(error,"error");
+        });
+     
     }
   }
 

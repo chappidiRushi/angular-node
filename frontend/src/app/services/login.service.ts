@@ -12,9 +12,7 @@ export class LoginService {
     // this.baseUrl = ;
   }
   generateUrl(path: String, perms: any) {
-    console.log(Object.keys(perms).length);
     const queryPerms = (Object.keys(perms).length > 0) ? `?${new URLSearchParams(perms).toString()}` : "";
-    console.log(`${this.baseUrl}${path}${queryPerms}`);
     return `${this.baseUrl}${path}${queryPerms}`;
   }
   logInUser(path: String, queryPerms: Object): any {

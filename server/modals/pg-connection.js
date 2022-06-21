@@ -11,7 +11,7 @@ module.exports.initClient = async () => {
   });
   await client.connect((error) => {
     if(error)
-    console.log("failed to connect db!", err);
+    console.log("error!", err);
   });
   return client;
 };
