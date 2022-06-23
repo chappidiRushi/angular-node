@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormsModule, NgForm } from '@angular/forms';
-import { LoginService } from '../services/login.service';
 import { environment } from '@environment';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
@@ -12,7 +11,7 @@ import { AuthService } from '../services/auth.service';
 })
 export class SigninComponent implements OnInit {
 
-  constructor(private logInService: LoginService, private router: Router, private authService: AuthService) { }
+  constructor( private router: Router, private authService: AuthService) { }
   userName = '';
   singInForm = new FormControl();
   ngOnInit(): void {
@@ -29,10 +28,12 @@ export class SigninComponent implements OnInit {
 
       this.authService.logInUser(QueryPrms).subscribe(
         (success: any) => {
+          console.log(success);
           if (success.logIn) {
             this.authService.storeJWT(success);
-            this.router.navigate(['home']);
-          }
+           return this.router.navigate(['home']);
+          } 
+          return this.authService.logOutUser();
         }, (error: any) => {
           console.log(error,"error");
         });

@@ -12,7 +12,7 @@ const routes: Routes = [
     //   { path: 'childpath', component: ChildComponent }
     // ]
   },
-  { path: 'home', component: MainComponent },
+  { path: 'home', component: MainComponent ,canActivate:[]},
 ];
 
 @NgModule({
