@@ -8,12 +8,10 @@ require('dotenv').config();
 
 
 router.get('/home', tokenVerifier, (req, res) => {
-   console.log("req is", req);
 
    res.status(200).send({ "success": "success" });
 });
 router.get('/get/logs', tokenVerifier, (req, res) => {
-   console.log("req is", req);
 
    res.status(200).send({ "success": "success" });
 });
@@ -26,7 +24,7 @@ router.post('/login', async (req, res) => {
          password: req.body.password
       }
       const options = {
-         expiresIn: '2h',
+         expiresIn: '15s',
       }
       const token = jwt.sign(userCredentials, process.env.TOKEN_KEY,options);
       res.status(200).send({logIn: true, token: token});

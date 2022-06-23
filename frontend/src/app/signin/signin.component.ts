@@ -28,14 +28,15 @@ export class SigninComponent implements OnInit {
 
       this.authService.logInUser(QueryPrms).subscribe(
         (success: any) => {
-          console.log(success);
+
           if (success.logIn) {
-            this.authService.storeJWT(success);
+            this.authService.storeJWT(success.token);
            return this.router.navigate(['home']);
           } 
           return this.authService.logOutUser();
         }, (error: any) => {
-          console.log(error,"error");
+          console.log("error");
+          
         });
      
     }

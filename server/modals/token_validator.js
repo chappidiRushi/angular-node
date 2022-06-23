@@ -4,12 +4,17 @@ const userControl = new UserController();
 
 module.exports.tokenVerifier = (req, res, next) => {
    try {      
-      console.log(req.headers);
       const authHeader = req.headers['authorization'];
       const token = authHeader && authHeader.split(' ')[1];
       if (token == null) return res.status(401).send({error: "No token available"});
       jwt.verify(token, process.env.TOKEN_KEY, (error, user)=> {
-         if (error) return res.status(404).send({ error: "Token expired" });
+         if (error) {
+            if (error.name === "TokenExpiredError"){
+               return res.status(401).send({ error: "Token expired" });
+            } else {
+               return res.status(401).send({ error: "Invalid Token" });
+            }
+         }
          req.user = user;
          const isValidUser = userControl.validateLogin(user.email, user.password);
          if (isValidUser) {

@@ -23,9 +23,8 @@ export class AuthService {
   logInUser(user: any): Observable<any> {
     return this.http.post<any>(this.generateUrl(`user/login`, {}), user);
   }
-  storeJWT(data: any) {
-    console.log(data.token);
-    localStorage.setItem('token', data.token);
+  storeJWT(token: string) {
+    localStorage.setItem('token', token);
   }
 
   deleteJWT(): void {
