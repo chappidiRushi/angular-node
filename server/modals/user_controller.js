@@ -13,7 +13,7 @@ class UserController {
       return entries;
    }
    async validateLogin(userName = '', password = '') {
-      const entries = await this.pg.query(`SELECT * from login_users where username='${userName}' and password='${password}' `);
+      const entries = await this.pg.query(`SELECT * from users where email='${userName}' and password='${password}' `);
       if (entries.rows.length > 0) {
          return true;
       }

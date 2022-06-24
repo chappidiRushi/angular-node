@@ -1,8 +1,8 @@
+require('./environments/config');
 var express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 var app = express();
-const PORT = 3000;
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(cors({
@@ -12,9 +12,6 @@ app.use(cors({
   allowedHeaders:'Content-Type, Authorization, Origin, X-Requested-With, Accept'
 })); 
 
-
-
-
 app.use('/api', require('./routes/api'));
 app.use('/user', require('./routes/user_router'));
 
@@ -23,12 +20,11 @@ app.get('/', (req, res) => {
     res.sendFile(__dirname + "/dist/index.html");
 });
 
-app.get('', (req, res) => {
+app.get('/main*', (req, res) => {
   res.sendFile(__dirname + "/dist/index.html");
 });
 
-// app.connect();
-
-app.listen(PORT, function (err) {
-    if (err) console.error(err);
+app.listen(process.env.PORT, function (err) {
+  if (err) console.error(err);
+  console.log(`server is listening on http://localhost:${process.env.PORT}`);
 });
