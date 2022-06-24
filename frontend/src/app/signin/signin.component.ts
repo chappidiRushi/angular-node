@@ -11,10 +11,13 @@ import { AuthService } from '../services/auth.service';
 })
 export class SigninComponent implements OnInit {
 
-  constructor( private router: Router, private authService: AuthService) { }
+  constructor(private router: Router, private authService: AuthService) { }
   userName = '';
   singInForm = new FormControl();
   ngOnInit(): void {
+    if (this.authService.isLoggedIn()) {
+      this.router.navigate(['main']);
+    }
   }
 
   singInUser(signInForm: NgForm) {
@@ -26,19 +29,19 @@ export class SigninComponent implements OnInit {
         password: userPassword,
       }
 
-      this.authService.logInUser(QueryPrms).subscribe(
-        (success: any) => {
-
+      this.authService.logInUser(QueryPrms).subscribe({
+        next: (success: any) => {
           if (success.logIn) {
             this.authService.storeJWT(success.token);
-           return this.router.navigate(['home']);
-          } 
+            return this.router.navigate(['main']);
+          }
           return this.authService.logOutUser();
-        }, (error: any) => {
+        },
+        error: (error: any) => {
           console.log("error");
-          
-        });
-     
+        }
+      });
+
     }
   }
 

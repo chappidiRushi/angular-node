@@ -6,13 +6,13 @@ import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SigninComponent } from './signin/signin.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { MainComponent } from './home/main/main.component';
 import { RequestInterseptorService } from './services/request-interseptor.service';
+import { PageNotFoundComponent } from './common/page-not-found/page-not-found.component';
 @NgModule({
   declarations: [
     AppComponent,
     SigninComponent,
-    MainComponent
+    PageNotFoundComponent,
   ],
   imports: [
     BrowserModule,

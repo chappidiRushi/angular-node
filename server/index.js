@@ -8,7 +8,7 @@ app.use(bodyParser.json());
 app.use(cors({
   Access_Control_Allow_Origin: "*",
   origin:"*",
-  methode:['GET','POST','PATCH','DELETE','PUT'],
+  method:['GET','POST','PATCH','DELETE','PUT'],
   allowedHeaders:'Content-Type, Authorization, Origin, X-Requested-With, Accept'
 })); 
 
@@ -18,7 +18,14 @@ app.use(cors({
 app.use('/api', require('./routes/api'));
 app.use('/user', require('./routes/user_router'));
 
+app.use(express.static('dist'))
+app.get('/', (req, res) => {
+    res.sendFile(__dirname + "/dist/index.html");
+});
 
+app.get('', (req, res) => {
+  res.sendFile(__dirname + "/dist/index.html");
+});
 
 // app.connect();
 
