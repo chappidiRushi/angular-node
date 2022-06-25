@@ -12,6 +12,7 @@ app.use(cors({
   allowedHeaders:'Content-Type, Authorization, Origin, X-Requested-With, Accept'
 })); 
 
+
 app.use('/api', require('./routes/api'));
 app.use('/user', require('./routes/user_router'));
 
