@@ -1,2 +1,0 @@
-// to build production
-ng build -c=production  
