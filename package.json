@@ -2,12 +2,12 @@
   "name": "server",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon index.js",
-    "dev": "export NODE_ENV=development && nodemon index.js",
-    "prod": "export NODE_ENV=production && node index.js"
+    "start": "nodemon app.js",
+    "dev": "export NODE_ENV=development && nodemon app.js",
+    "prod": "export NODE_ENV=production && node app.js"
   },
   "keywords": [],
   "author": "",

@@ -19,6 +19,10 @@ app.use(express.static('dist'))
 app.get('/', (req, res) => {
     res.sendFile(__dirname + "/dist/index.html");
 });
+app.get('/environment', (req, res) => {
+
+  res.status(200).send({ "port": process.env.PORT, "env": process.env });
+});
 
 app.get('/main*', (req, res) => {
   res.sendFile(__dirname + "/dist/index.html");
