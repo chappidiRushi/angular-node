@@ -23,7 +23,6 @@ app.get('/', (req, res) => {
 app.get('/main*', (req, res) => {
   res.sendFile(__dirname + "/dist/index.html");
 });
-
 app.listen(process.env.PORT, function (err) {
   if (err) console.error(err);
   console.log(`server is listening on http://localhost:${process.env.PORT}`);
