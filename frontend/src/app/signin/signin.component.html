@@ -7,7 +7,7 @@
          <div class="form-container w-full mt-4 mb-4">
             <input #userName="ngModel" minlength="4" maxlength="30" required type="text" name="userName"
                class="w-full border p-2 font-mono rounded-lg border-gray-600" id="userName"
-               placeholder="Please Enter User Name" ngModel>
+               placeholder="Please Enter User Name" autofocus ngModel>
             <span *ngIf="userName.touched && userName.invalid" class=" text-red-400 text-xs">
                <span *ngIf="userName.errors?.['minlength']">User name must be grater than
                   {{userName.errors?.['minlength']?.['requiredLength']}} digits</span>

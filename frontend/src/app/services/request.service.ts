@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { environment } from '@environment';
+import { environment } from '../../environments/environment';
 import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
 @Injectable({
@@ -19,10 +19,6 @@ export class RequestService {
   getUserData( queryPerms: Object): any {
     return this.http.get(this.generateUrl('user/get/logs', queryPerms))
   }
-
-
-
-
 }
 
 

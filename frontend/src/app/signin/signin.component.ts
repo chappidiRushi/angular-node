@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormsModule, NgForm } from '@angular/forms';
-import { environment } from '@environment';
+import { environment } from '../../environments/environment';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 

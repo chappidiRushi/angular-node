@@ -6,8 +6,8 @@ import { SigninComponent } from './signin/signin.component'
 
 
 const routes: Routes = [
-  { path: '', redirectTo: 'login', pathMatch: 'full' },
-  { path: 'login', component: SigninComponent },
+  { path: '', redirectTo: 'auth/login', pathMatch: 'full' },
+  { path: 'auth/login', component: SigninComponent },
   { path: 'main', loadChildren: () => import('./home/home.module').then(m => m.HomeModule), canActivate: [CanActivateGuard] },
   { path: '**', component: PageNotFoundComponent },
 ];

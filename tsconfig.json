@@ -5,7 +5,7 @@
     "baseUrl": "./frontend",
     "paths": {
       "@services/*":["app/services/*"],
-      "@environment": ["./src/environments/environment.ts"],
+      "@environment": ["./frontend/src/environments/environment.ts"],
       "@guard":["./guards'"],
 
     },

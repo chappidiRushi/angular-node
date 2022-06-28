@@ -17,17 +17,14 @@ app.use('/api', require('./routes/api'));
 app.use('/user', require('./routes/user_router'));
 
 app.use(express.static('dist'))
-app.get('/', (req, res) => {
-    res.sendFile(__dirname + "/dist/index.html");
-});
 app.get('/environment', (req, res) => {
 
   res.status(200).send({ "port": process.env.PORT, "env": process.env });
 });
 
-app.get('/main*', (req, res) => {
-  res.sendFile(__dirname + "/dist/index.html");
-});
+app.get('/auth*', (req, res) => {res.sendFile(__dirname + "/dist/index.html");});
+app.get('/main*', (req, res) => {res.sendFile(__dirname + "/dist/index.html");});
+app.get('/', (req, res) => {res.sendFile(__dirname + "/dist/index.html");});
 app.listen(process.env.PORT, function (err) {
   if (err) console.error(err);
   console.log(`server is listening on http://localhost:${process.env.PORT}`);

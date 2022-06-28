@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { environment } from '@environment';
+import { environment } from '../../environments/environment';
+import { UtilService } from './util.service';
 import { Observable } from 'rxjs/internal/Observable';
 import { Router } from '@angular/router';
 
@@ -42,7 +43,7 @@ export class AuthService {
 
   logOutUser() {
     this.deleteJWT();
-    this.router.navigate(['login']);
+    this.router.navigate(['auth/login']);
     return null;
   }
 

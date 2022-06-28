@@ -1,5 +1,6 @@
 cors
-
+to build production
+ng build --configuration=production
 {
    "/api": {
      "target": "http://localhost:3000",
