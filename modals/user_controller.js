@@ -19,5 +19,20 @@ class UserController {
       }
       return false;
    }
+   async isEmailExist(email) {
+      const entries = await this.pg.query(`SELECT * from users where email='${userName}'`);
+      if (entries.rows.length > 0) {
+         return true;
+      }
+      return false;
+   }
+   async signUpUser(body) {
+
+      const entries = await this.pg.query(`ALTER Table users add`);
+      if (entries.rows.length > 0) {
+         return true;
+      }
+      return false;
+   }
 }
 module.exports = UserController;

@@ -2,33 +2,34 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormsModule, NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
-
 @Component({
-  selector: 'app-signin',
-  templateUrl: './signin.component.html',
-  styleUrls: ['./signin.component.scss']
+  selector: 'app-signup',
+  templateUrl: './signup.component.html',
+  styleUrls: ['./signup.component.scss']
 })
-export class SigninComponent implements OnInit {
+export class SignupComponent implements OnInit {
 
   constructor(private router: Router, private authService: AuthService) { }
   userName = '';
-  singInForm = new FormControl();
+  signUpfrom = new FormControl();
   ngOnInit(): void {
     if (this.authService.isLoggedIn()) {
       this.router.navigate(['main']);
     }
   }
 
-  singInUser(signInForm: NgForm) {
+  signup(signInForm: NgForm) {
     if (signInForm.valid) {
       const userName = signInForm.form.controls?.['userName']?.value;
+      const userEmail = signInForm.form.controls?.['userName']?.value;
       const userPassword = signInForm.form.controls?.['userPassword']?.value;
       const QueryPrms: Object = {
-        email: userName,
+        userName: userName,
         password: userPassword,
+        userEmail: userEmail
       }
 
-      this.authService.logInUser(QueryPrms).subscribe({
+      this.authService.signupUser(QueryPrms).subscribe({
         next: (success: any) => {
           if (success.logIn) {
             this.authService.storeJWT(success.token);

@@ -24,6 +24,9 @@ export class AuthService {
   logInUser(user: any): Observable<any> {
     return this.http.post<any>(this.generateUrl(`user/login`, {}), user);
   }
+  signupUser(user: any): Observable<any> {
+    return this.http.post<any>(this.generateUrl(`user/signup`, {}), user);
+  }
   storeJWT(token: string) {
     localStorage.setItem('token', token);
   }

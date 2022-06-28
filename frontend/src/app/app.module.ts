@@ -8,11 +8,13 @@ import { SigninComponent } from './signin/signin.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RequestInterseptorService } from './services/request-interseptor.service';
 import { PageNotFoundComponent } from './common/page-not-found/page-not-found.component';
+import { SignupComponent } from './signup/signup.component';
 @NgModule({
   declarations: [
     AppComponent,
     SigninComponent,
     PageNotFoundComponent,
+    SignupComponent,
   ],
   imports: [
     BrowserModule,

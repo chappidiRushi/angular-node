@@ -2,16 +2,26 @@
 <div class="main-container flex flex-col justify-center items-center   w-screen h-screen bg-red-400">
    <div class="text-5xl p-6 font-sans">Rishi.io</div>
    <div class="w-96  bg-white rounded-lg p-6">
-      <div class="w-full pb-2 text-center text-2xl">Log In</div>
-      <form (ngSubmit)="singInUser(signInForm)" #signInForm="ngForm">
+      <div class="w-full pb-2 text-center text-2xl">Sign Up</div>
+      <form (ngSubmit)="signup(signupUser)" #signupUser="ngForm">
          <div class="form-container w-full mt-4 mb-4">
             <input #userName="ngModel" minlength="4" maxlength="30" required type="text" name="userName"
                class="w-full border p-2 font-mono rounded-lg border-gray-600" id="userName"
                placeholder="Please Enter User Name" autofocus ngModel>
             <span *ngIf="userName.touched && userName.invalid" class=" text-red-400 text-xs">
-               <span *ngIf="userName.errors?.['minlength']">User name must be grater than
+               <span *ngIf="userName.errors?.['minlength']">Name must be grater than
                   {{userName.errors?.['minlength']?.['requiredLength']}} digits</span>
-               <span *ngIf="userName.errors?.['required']">User name should not be empty</span>
+               <span *ngIf="userName.errors?.['required']">Name should not be empty</span>
+            </span>
+         </div>
+         <div class="form-container w-full mt-4 mb-4">
+            <input #userEmail="ngModel" minlength="4" maxlength="30" required type="text" name="userName"
+               class="w-full border p-2 font-mono rounded-lg border-gray-600" id="userName"
+               placeholder="Please Enter User Email" ngModel>
+            <span *ngIf="userEmail.touched && userName.invalid" class=" text-red-400 text-xs">
+               <span *ngIf="userEmail.errors?.['minlength']">Email must be grater than
+                  {{userEmail.errors?.['minlength']?.['requiredLength']}} digits</span>
+               <span *ngIf="userEmail.errors?.['required']">Email should not be empty</span>
             </span>
          </div>
          <div class="form-container w-full mt-4 mb-4">
@@ -19,17 +29,16 @@
                class="w-full border p-2 font-mono rounded-lg border-gray-600" id="password"
                placeholder="Please Enter Password" ngModel autocomplete="true">
             <span *ngIf="userPassword.touched && userPassword.invalid" class=" text-red-400 text-xs">
-               <span *ngIf="userPassword.errors?.['minlength']">User password must be more than
+               <span *ngIf="userPassword.errors?.['minlength']">Password must be more than
                   {{userPassword.errors?.['minlength']?.['requiredLength']}} digits</span>
-               <span *ngIf="userPassword.errors?.['required']">User password should not be empty</span>
+               <span *ngIf="userPassword.errors?.['required']">Password should not be empty</span>
             </span>
          </div>
          <button type="submit" id="login"
             class="w-full mt-2 mb-2 border p-2 font-mono rounded-lg border-gray-600 hover:bg-blue-300">Log
             In</button>
       </form>
-      <div class="w-full text-center"><a href="/auth/signup" class="text-green-500">Create New Account</a></div>
-      <!-- <div class="w-full text-center"><a href="/forgotPassword" class="text-green-500">Sign Up</a></div> -->
+      <div class="w-full text-center"><a href="/auth/login" class="text-orange-500">Back To Login</a></div>
    </div>
 
 </div>
