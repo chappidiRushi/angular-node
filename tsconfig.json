@@ -9,7 +9,7 @@
       "@guard":["./guards'"],
 
     },
-    "outDir": "./dist/out-tsc",
+    "outDir": "dist1/out-tsc",
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "noImplicitOverride": true,
