@@ -1,0 +1,11 @@
+<div id="contextcontainer" (click)="hideContext($event)" [ngStyle]="contextContainer" class="h-screen w-full absolute top-0 left-0">
+   <div id="contextMenu" [ngStyle]="contextPosition" class="absolute shadow-lg min-w-max py-2 rounded-xl bg-slate-200 ">
+      <ul>
+         <li class="px-2 mx-2 py-1 my-1 rounded-lg hover:bg-lime-100">Profile Page</li>
+         <li class="px-2 mx-2 py-1 my-1 rounded-lg hover:bg-lime-100">Goto Settings </li>
+         <li class="px-2 mx-2 py-1 my-1 rounded-lg hover:bg-lime-100">Contact Page</li>
+         <li (click)="logOutUser($event)" class="px-2 mx-2 py-1 my-1 rounded-lg hover:bg-lime-100">Log Out</li>
+      </ul>
+   </div>
+</div>
+

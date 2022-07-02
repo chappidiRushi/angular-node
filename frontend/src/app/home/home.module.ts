@@ -7,7 +7,7 @@ import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { ContactComponent } from './contact/contact.component';
 import { MainComponent } from './main/main.component';
-
+import { UtilModule } from '../common/util.module';
 
 @NgModule({
   declarations: [
@@ -19,7 +19,8 @@ import { MainComponent } from './main/main.component';
   ],
   imports: [
     CommonModule,
-    HomeRoutingModule
+    HomeRoutingModule,
+    UtilModule
   ]
 })
 export class HomeModule { }

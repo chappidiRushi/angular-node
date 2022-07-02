@@ -11,6 +11,12 @@ export class MainComponent implements OnInit {
 
   ngOnInit(): void {
     console.warn("this shold not empty");
+    
+    // window.document.oncontextmenu = (event) => {
+    //   console.log(event);
+    //   event.preventDefault();
+    //   // event.
+    // }
   }
 
 }

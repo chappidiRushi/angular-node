@@ -25,3 +25,27 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+
+## Utils 
+
+Chrome Debugger config
+{
+   "version": "0.2.0",
+   "configurations": [
+       {
+           "type": "chrome",
+           "request": "launch",
+           "name": "Launch Chrome against localhost",
+           "url": "http://localhost:4200",
+           "webRoot": "${workspaceFolder}"
+       },
+       {
+           "type": "chrome",
+           "request": "attach",
+           "name": "Attach to Chrome",
+           "port": 9222,
+           "webRoot": "${workspaceFolder}"
+       }
+   ]
+}

@@ -9,6 +9,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RequestInterseptorService } from './services/request-interseptor.service';
 import { PageNotFoundComponent } from './common/page-not-found/page-not-found.component';
 import { SignupComponent } from './signup/signup.component';
+import { UtilModule } from './common/util.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,7 +22,8 @@ import { SignupComponent } from './signup/signup.component';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    UtilModule
   ],
   providers: [
     {

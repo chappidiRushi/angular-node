@@ -16,9 +16,11 @@ export class CanActivateGuard implements CanActivate {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): any {
-    if (this.auth_service.isLoggedIn())
+    if (this.auth_service.isLoggedIn()) {
       return true;
-      this.router.navigate(['auth/login']);
+    }
+    this.router.navigate(['auth/login']);
+    return false;
   }
 
 }
